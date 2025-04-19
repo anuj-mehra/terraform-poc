@@ -3,7 +3,7 @@
 variable "service_accounts" {
   description = "List of service accounts to create"
   type        = list(string)
-  default     = ["sa-terraform", "sa-devops", "sa-monitoring"]
+  default     = ["sa-terraform", "sa-devops", "sa-monitoring", "sa-cloudrun", "sa-composer"]
 }
 
 # Create multiple service accounts

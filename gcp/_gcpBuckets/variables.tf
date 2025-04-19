@@ -24,3 +24,13 @@ variable "credentials_file" {
   default     = "./terraform-sa-key.json" # Ensure this file exists in your working directory
 }
 
+variable "service_account_prefix" {
+  type    = string
+  default = "serviceAccount:"
+}
+
+variable "service_account_domain" {
+  type    = string
+  default = "@spatial-edition-256713.iam.gserviceaccount.com"
+}
+
