@@ -63,8 +63,12 @@ jobs:
     defaults:
       run:
         shell: bash
+        working-directory: gcp/${{ github.event.inputs.folder }}
 
     steps:
+    - name: Show input folder
+      run: echo "Folder selected:" ${{ github.event.inputs.folder }}
+
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout repo
       uses: actions/checkout@v4
@@ -80,7 +84,7 @@ jobs:
       run: terraform init
 
     - name: Terraform Validate
-        run: terraform validate
+      run: terraform validate
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
