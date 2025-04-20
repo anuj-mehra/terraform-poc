@@ -63,11 +63,14 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ../gcp/${{ github.event.inputs.folder }}
+        working-directory: terraform-poc/gcp/${{ github.event.inputs.folder }}
 
     steps:
     - name: Show input folder
       run: echo "Folder selected:" ${{ github.event.inputs.folder }}
+
+    - name: Show current directory
+      run: pwd && ls -la
 
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout repo
