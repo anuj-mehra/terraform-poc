@@ -63,7 +63,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: gcp/${{ github.event.inputs.folder }}
+        working-directory: ../gcp/${{ github.event.inputs.folder }}
 
     steps:
     - name: Show input folder
