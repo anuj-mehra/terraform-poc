@@ -15,12 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
 
-    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: gcp/${{ github.event.inputs.folder }}
-
     steps:
     - name: Show input folder
       run: echo "Folder selected:" ${{ github.event.inputs.folder }}
@@ -32,6 +26,12 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v4
 
+    - name: Show contents of folder
+        run: |
+          pwd
+          ls -la gcp/${{ github.event.inputs.folder }}
+
+
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
@@ -41,13 +41,17 @@ jobs:
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
+      working-directory: gcp/${{ github.event.inputs.folder }}
 
     - name: Terraform Validate
       run: terraform validate
+      working-directory: gcp/${{ github.event.inputs.folder }}
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan -input=false
+      working-directory: gcp/${{ github.event.inputs.folder }}
 
     - name: Terraform Apply
       run: terraform apply -auto-approve -input=false
+      working-directory: gcp/${{ github.event.inputs.folder }}
