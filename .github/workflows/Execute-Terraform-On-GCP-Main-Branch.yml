@@ -24,12 +24,6 @@ jobs:
     steps:
     - name: Show input folder
       run: echo "Folder selected:" ${{ github.event.inputs.folder }}
-
-    - name: Debug working directory
-        run: |
-          echo "Folder selected: ${{ github.event.inputs.folder }}"
-          pwd
-          ls -la
           
     - name: Show current directory
       run: pwd && ls -la
