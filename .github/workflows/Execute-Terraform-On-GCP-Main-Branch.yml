@@ -27,7 +27,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Show contents of folder
-        run: |
+      run: |
           pwd
           ls -la gcp/${{ github.event.inputs.folder }}
 
