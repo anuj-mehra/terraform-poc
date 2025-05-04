@@ -1,0 +1,12 @@
+repos:
+  - name: CreatedByTerraform_1
+    description: Terraform POC 1
+    visibility: public
+    template_owner: anuj-mehra
+    template_repo: graphql-poc
+
+  - name: CreatedByTerraform_2
+    description: Terraform POC 2
+    visibility: public
+    template_owner: anuj-mehra
+    template_repo: graphql-poc
