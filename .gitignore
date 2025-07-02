@@ -1,5 +1,6 @@
 .idea/*
 terraform-sa-key.json
+VertexAI-SA-key.json
 gcp/*/.terraform/
 gcp/*/.terraform.lock.hcl
 gcp/*/terraform.tfstate
